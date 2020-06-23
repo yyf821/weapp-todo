@@ -1,0 +1,10 @@
+<!--pages/todo/todo.wxml-->
+<view class="container">
+	<view>
+		<input type="text" model:value="{{text}}" placeholder="请输入待办事项"></input>
+		<button class="btn-submit" bindtap="onSubmit" type="primary">提交</button>
+	</view>
+	<view wx:for="{{todos}}" wx:for-item="todo" wx:key="id">
+		<todo-item todo="{{todo}}" bind:onDelete="propsDelete" bind:onFinish="propsFinish"></todo-item>
+	</view>
+</view>

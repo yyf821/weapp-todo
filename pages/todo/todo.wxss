@@ -1,0 +1,14 @@
+/* pages/todo/todo.wxss */
+.btn-submit {
+  margin: 10px 0;
+}
+
+.btn-submit:not([size='mini']) {
+  /* 修改宽高 */
+  width: 100%;
+}
+
+input {
+  border: 1px solid #ccc;
+  padding: 12px 20px;
+}

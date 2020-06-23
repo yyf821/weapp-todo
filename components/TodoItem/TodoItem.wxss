@@ -1,0 +1,31 @@
+/* components/TodoItem/TodoItem.wxss */
+.todo-cell {
+  padding: 5px;
+  margin: 10px 0;
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.todo-cell button {
+  margin: 0 4px 0 0;
+}
+
+.todo-complete {
+  position: relative;
+  border-color: #0070c9;
+}
+
+.todo-complete::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  color: #61dafb;
+  transform: translateY(-50%);
+}
+button[type='warn']{
+  background-color: white;
+}
