@@ -15,4 +15,7 @@
 		<view wx:for="{{filter.getFinished(todos)}}" wx:for-item="todo" wx:key="id">
 		<todo-item todo="{{todo}}" bind:onDelete="propsDelete" bind:onFinish="propsFinish"></todo-item>
 	</view>
+	<view>
+		<button class="btn-submit" bindtap="onClear" type="warn">清空</button>
+	</view>
 </view>

@@ -6,16 +6,10 @@ Page({
    */
   data: {
     text: '',
-    todos: [{
-      id: 123,
-      task: 'foo',
-      finished: true,
-    }, {
-      id: 456,
-      task: 'bar',
-      finished: false,
-    }],
+    todos: [],
   },
+
+  // 添加todo
   onSubmit: function (e) {
     if (this.data.text.length === 0) {
       wx.showToast({
@@ -36,7 +30,10 @@ Page({
       todos,
       text: '',
     })
+    this.save()
   },
+
+  // 删除todo
   propsDelete: function (todoId) {
     let todos = this.data.todos
     let index = todos.findIndex(e => e.id === todoId.detail)
@@ -45,7 +42,10 @@ Page({
     this.setData({
       todos: todos,
     })
+    this.save()
   },
+
+  // 标记完成
   propsFinish: function (todoId) {
     let todos = this.data.todos
     let index = todos.findIndex(e => e.id === todoId.detail);
@@ -54,12 +54,62 @@ Page({
     this.setData({
       todos: todos,
     })
+    this.save()
   },
+
+  // 保存数据
+  save: function () {
+    wx.setStorage({
+      key: "my-todo-list",
+      data: this.data.todos
+    })
+  },
+
+  // 从缓存中读取
+  load: function () {
+    var that = this;
+    wx.getStorage({
+      key: 'my-todo-list',
+      success(res) {
+        that.setData({
+          todos: res.data
+        })
+      },
+      fail(res) {
+        wx.showToast({
+          title: '暂无数据',
+          icon: 'none',
+        })
+      }
+    })
+  },
+
+  // 清除缓存
+  clear: function () {
+    this.setData({
+      todos: []
+    })
+    wx.clearStorage()
+  },
+
+  onClear: function () {
+    var that = this;
+    wx.showModal({
+      title: '删除',
+      content: '确认删除所有待办？',
+      success(res) {
+        if (res.confirm) {
+          that.clear()
+        }
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.load()
   },
 
   /**

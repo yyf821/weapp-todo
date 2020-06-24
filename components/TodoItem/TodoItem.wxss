@@ -9,10 +9,16 @@
   flex-wrap: wrap;
 }
 
+/* 删除按钮 */
 .todo-cell button {
   margin: 0 4px 0 0;
 }
 
+.btn-delete[type='warn'] {
+  background-color: white;
+}
+
+/* 完成todo样式 */
 .todo-complete {
   position: relative;
   border-color: #0070c9;
@@ -25,7 +31,4 @@
   right: 10px;
   color: #61dafb;
   transform: translateY(-50%);
-}
-button[type='warn']{
-  background-color: white;
 }
