@@ -7,11 +7,21 @@
 .btn-submit:not([size='mini']) {
   width: 100%;
 }
+.progress-box{
+  margin: 10px 0;
+}
 
 /* 输入框 */
+.todo-add{
+  display: flex;
+  align-items: center;
+}
+
 input {
-  border: 1px solid #d6d6d6;
-  padding: 12px 20px;
+  border-bottom: 2rpx solid #333;
+  padding-bottom: 4px;
+  margin-right: 4px;
+  flex: 1;
 }
 
 /* 分割线 */
@@ -25,4 +35,5 @@ input {
 /* 分割标题 */
 .todo-title {
   color: #333;
+  margin: 10px 0;
 }

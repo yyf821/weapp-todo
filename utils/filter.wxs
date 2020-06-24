@@ -18,9 +18,24 @@ var getUnfinished = function (array) {
   return done;
 }
 
+var getPercentage = function (array) {
+  var done = 0
+  var percentage = 0
+  if (array.length === 0) {
+    return
+  }
+  for (var i = 0; i < array.length; ++i) {
+    if (array[i].finished) {
+      done++
+    }
+  }
+  percentage = done / array.length * 100
+  return percentage
+}
 
 //导出
 module.exports = {
   getFinished: getFinished,
   getUnfinished: getUnfinished,
+  getPercentage: getPercentage,
 }

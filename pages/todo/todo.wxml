@@ -1,17 +1,24 @@
 <!--pages/todo/todo.wxml-->
 <wxs src="../../utils/filter.wxs" module="filter" />
 <view class="container">
-	<view>
+	<view class="todo-add">
 		<input type="text" model:value="{{text}}" placeholder="请输入待办事项"></input>
-		<button class="btn-submit" bindtap="onSubmit" type="primary">提交</button>
+		<button class="btn-submit" bindtap="onSubmit" size="mini">提交</button>
 	</view>
-	<text class="todo-title">未完成（{{filter.getUnfinished(todos).length}}）</text>
-	<view class="line"></view>
+	<view class="progress-box">
+  	<progress percent="{{filter.getPercentage(todos)}}" color="#0070c9" active stroke-width="3" active-mode="forwards" bindactiveend="bindActiceEnd"/>
+	</view>
+	<view class="todo-title">
+		<text>未完成（{{filter.getUnfinished(todos).length}}）</text>
+		<view class="line"></view>
+	</view>
 	<view wx:for="{{filter.getUnfinished(todos)}}" wx:for-item="todo" wx:key="id">
 		<todo-item todo="{{todo}}" bind:onDelete="propsDelete" bind:onFinish="propsFinish"></todo-item>
 	</view>
-	<text class="todo-title">已完成（{{filter.getFinished(todos).length}}）</text>
-	<view class="line"></view>
+	<view class="todo-title">
+		<text>已完成（{{filter.getFinished(todos).length}}）</text>
+		<view class="line"></view>
+	</view>
 		<view wx:for="{{filter.getFinished(todos)}}" wx:for-item="todo" wx:key="id">
 		<todo-item todo="{{todo}}" bind:onDelete="propsDelete" bind:onFinish="propsFinish"></todo-item>
 	</view>

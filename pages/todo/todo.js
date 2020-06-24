@@ -72,7 +72,7 @@ Page({
       key: 'my-todo-list',
       success(res) {
         that.setData({
-          todos: res.data
+          todos: res.data,
         })
       },
       fail(res) {
@@ -82,6 +82,15 @@ Page({
         })
       }
     })
+  },
+
+  bindActiceEnd(e){
+    if (e.detail.curPercent===100) {
+      wx.showToast({
+        title: '太棒了，已完成所有待办',
+        icon: 'none',
+      })
+    }
   },
 
   // 清除缓存
