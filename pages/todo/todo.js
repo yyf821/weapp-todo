@@ -14,7 +14,7 @@ Page({
       id: 456,
       task: 'bar',
       finished: false,
-    }]
+    }],
   },
   onSubmit: function (e) {
     if (this.data.text.length === 0) {
@@ -43,16 +43,16 @@ Page({
     //splice() 方法会改变原始数组
     todos.splice(index, 1)
     this.setData({
-      todos:todos,
+      todos: todos,
     })
   },
-  propsFinish: function(todoId) {
+  propsFinish: function (todoId) {
     let todos = this.data.todos
     let index = todos.findIndex(e => e.id === todoId.detail);
     let finished = todos[index].finished;
     todos[index].finished = !finished;
     this.setData({
-      todos:todos,
+      todos: todos,
     })
   },
   /**

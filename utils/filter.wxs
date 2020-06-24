@@ -1,0 +1,26 @@
+var getFinished = function (array) {
+  //return array.filter(todo => todo.finished===true);
+  var done = [];
+  for (var i = 0; i < array.length; ++i) {
+    if (array[i].finished) {
+      done.push(array[i])
+    }
+  }
+  return done;
+}
+var getUnfinished = function (array) {
+  var done = [];
+  for (var i = 0; i < array.length; ++i) {
+    if (!array[i].finished) {
+      done.push(array[i])
+    }
+  }
+  return done;
+}
+
+
+//导出
+module.exports = {
+  getFinished: getFinished,
+  getUnfinished: getUnfinished,
+}
