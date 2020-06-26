@@ -28,6 +28,6 @@ Component({
     actionDone: function () {
       let id = this.data.todo.id
       this.triggerEvent('onFinish', id)
-    },
+    }
   }
 })

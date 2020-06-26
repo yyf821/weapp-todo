@@ -1,6 +1,6 @@
 <!--components/TodoItem/TodoItem.wxml-->
 
 <view class="todo-cell {{todo.finished?'todo-complete':''}}" mut-bind:tap="actionDone">
-	<button class="btn-delete" size="mini" type="warn" mut-bind:tap="actionDelete">×</button>
-	<text>{{todo.task}}</text>
+	<button class="btn-delete" size="mini" plain="true" type="warn" mut-bind:tap="actionDelete">×</button>
+	<text class="{{todo.finished?(todo.task.length<= 15 ? 'strike' : 'no-strike'):''}}">{{todo.task}}</text>
 </view>

@@ -1,3 +1,4 @@
+
 /* components/TodoItem/TodoItem.wxss */
 .todo-cell {
   padding: 5px;
@@ -9,21 +10,28 @@
   flex-wrap: wrap;
 }
 
+.todo-cell text {
+  max-width: 85%;
+  word-break: break-word;
+  position: relative;
+}
+
 /* 删除按钮 */
 .todo-cell button {
   margin: 0 4px 0 0;
 }
 
-.btn-delete[type='warn'] {
-  background-color: white;
+.todo-cell button[type='warn'] {
+  border: none;
 }
 
 /* 完成todo样式 */
 .todo-complete {
   position: relative;
   border-color: #0070c9;
+  opacity: 0.7;
 }
-
+ 
 .todo-complete::after {
   content: '✓';
   position: absolute;
@@ -31,4 +39,27 @@
   right: 10px;
   color: #61dafb;
   transform: translateY(-50%);
+}
+
+/* 删除线动画效果 */
+.strike:before {
+	content:'';
+	position:absolute;
+	top:50%;
+  transform: translateY(-50%);
+	display:block;
+	width:0%;
+	height:2rpx;
+  background:#000;
+	animation:strikeitem 0.5s ease-out forwards;
+}
+
+.no-strike{
+  text-decoration: line-through;
+}
+
+@keyframes strikeitem {
+  to { 
+    width:100%;
+  }
 }
